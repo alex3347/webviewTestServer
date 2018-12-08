@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增加CPU占用</title>
+</head>
+<style>
+    .button {
+        border: 1px solid #CCC;
+        background: #eee;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 40px;
+        border-radius: 4px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+</style>
+<script>
+    var add = function (arg) {
+        for(var i=0;i<arg;i++){
+            var tempDOM = document.createElement("div");
+            document.getElementsByTagName("body")[0].appendChild(tempDOM)
+        }
+    };
+</script>
+
+<body style="padding-top:100px">
+    <div class="button" onclick="add(10000)">操作10000个DOM节点</div>
+    <div class="button" onclick="add(50000)">操作50000个DOM节点</div>
+    <div class="button" onclick="add(100000)">操作100000个DOM节点</div>
+    <div class="button" onclick="add(1000000)">操作1000000个DOM节点</div>
+</body>
+
+</html>

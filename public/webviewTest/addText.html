@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增加文本</title>
+</head>
+<style>
+    .button {
+        border: 1px solid #CCC;
+        background: #eee;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 40px;
+        border-radius: 4px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+</style>
+<script>
+    var add = function () {
+        var arg = document.getElementById("text").value;
+        var fragment = document.createDocumentFragment();
+        for(var i=0;i<arg;i++){
+            var tempDOM = document.createElement("div");
+            tempDOM.innerText = "12345"
+            fragment.appendChild(tempDOM);
+        }
+        document.getElementsByTagName("body")[0].appendChild(fragment)
+    };
+</script>
+
+<body style="padding-top:100px">
+    <div class="button">
+        增加<input type="text" id="text">个文本DOM节点 每个0.01KB
+    </div>
+    <div class="button" onclick="add()">添加</div>
+</body>
+
+</html>

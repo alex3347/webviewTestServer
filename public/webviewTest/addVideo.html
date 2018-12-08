@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增加视频</title>
+</head>
+<style>
+    .button {
+        border: 1px solid #CCC;
+        background: #eee;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 40px;
+        border-radius: 4px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+    img{
+        display: block;
+        width: 100%;
+    }
+    video{
+        width: 100%;
+    }
+</style>
+<script>
+    var add = function () {
+        var arg = document.getElementById("text").value;
+        var fragment = document.createDocumentFragment();
+        for(var i=0;i<arg;i++){
+            var tempVideo = document.createElement("video");
+            var tempSource = document.createElement("source");
+            var random = parseInt(Math.random()*1000)+'';
+            var timeStamp=new Date().getTime()+random;
+            tempSource.src="./video/movie.mp4?"+timeStamp;
+            tempSource.setAttribute('type','video/mp4');
+            tempVideo.setAttribute('autoplay',true);
+            tempVideo.setAttribute('loop','loop');
+            tempVideo.appendChild(tempSource);
+            fragment.appendChild(tempVideo);
+        }
+        document.getElementsByTagName("body")[0].appendChild(fragment)
+    };
+</script>
+
+<body style="padding-top:100px">
+    <div class="button">
+        增加<input type="text" id="text">个视频DOM节点
+    </div>
+    <div class="button" onclick="add()">添加</div>
+</body>
+
+</html>

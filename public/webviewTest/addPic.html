@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增加图片</title>
+</head>
+<style>
+    .button {
+        border: 1px solid #CCC;
+        background: #eee;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 40px;
+        border-radius: 4px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+    }
+    img{
+        display: block;
+        width: 100%;
+    }
+</style>
+<script>
+    var add = function (size) {
+        var arg = document.getElementById("text").value;
+        var fragment = document.createDocumentFragment();
+        for(var i=0;i<arg;i++){
+            var tempDOM = document.createElement("img");
+            var random = parseInt(Math.random()*1000)+'';
+            var timeStamp=new Date().getTime()+random;
+            switch(size){
+                case 'small':
+                    tempDOM.src="./image/small.jpg?"+timeStamp
+                    break;
+                case 'middle':
+                    tempDOM.src="./image/middle.jpg?"+timeStamp
+                    break;
+                case 'big':
+                    tempDOM.src="./image/big.jpg?"+timeStamp
+                    break;
+            }
+            fragment.appendChild(tempDOM);
+        }
+        document.getElementsByTagName("body")[0].appendChild(fragment)
+    };
+</script>
+
+<body style="padding-top:100px">
+    <div class="button">
+        增加<input type="text" id="text">个图片DOM节点
+    </div>
+    <div class="button" onclick="add('small')">添加5K小图</div>
+    <div class="button" onclick="add('middle')">添加176K中图</div>
+    <div class="button" onclick="add('big')">添加3M大图</div>
+</body>
+
+</html>
